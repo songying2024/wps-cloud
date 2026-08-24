@@ -8,7 +8,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = join(__dirname, '..')
 
 // 加载 dsh-tools（用 junction / 直接路径均可）
-const dshToolsPath = 'C:/Users/Lenovo/.npm-global/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/dsh-tools/lib/index.js'
+// 按需修改：<用户目录> 指 C:/Users/<你的用户名>
+const dshToolsPath = process.env.DSH_TOOLS_PATH || 'C:/Users/<你的用户名>/.npm-global/node_modules/@deepseek-ai/dsh/node_modules/@deepseek-ai/dsh-tools/lib/index.js'
 const { defineTool } = await import('file:///' + dshToolsPath.replace(/\\/g, '/'))
 
 const { apply } = await import('file:///' + join(pluginRoot, 'lib', 'index.js').replace(/\\/g, '/'))

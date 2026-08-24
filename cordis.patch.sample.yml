@@ -1,7 +1,7 @@
 # WPS 云文档插件（普通用户版）— 配置示例
 #
 # 本地安装：把下面这段（含缩进）追加到
-#   C:\Users\Lenovo\.dsh\profiles\web\cordis.patch.yml
+#   <用户目录>\.dsh\profiles\web\cordis.patch.yml   （<用户目录> 即 C:\Users\<你的用户名>）
 # 的末尾（作为数组的最后一个元素）。
 #
 # 本版本面向「普通 WPS 用户」：无需开发者账号 / APPID / APPKEY / OAuth 回调地址。

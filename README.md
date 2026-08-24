@@ -44,19 +44,19 @@
 1. 把插件目录复制到 DSH 主目录的本地插件空间：
 
    ```powershell
-   Copy-Item -Recurse <插件目录> C:\Users\Lenovo\.dsh\node_modules\@dsh-local\wps-cloud
+   Copy-Item -Recurse <插件目录> <用户目录>\.dsh\node_modules\@dsh-local\wps-cloud   # <用户目录> 即 C:\Users\<你的用户名>
    ```
 
 2. 让插件能解析 DSH 工具定义包（Windows 下用 junction 符号链接，指向 dsh 安装内的真实包）：
 
    ```powershell
-   $dsh = "C:\Users\Lenovo\.npm-global\node_modules\@deepseek-ai\dsh\node_modules\@deepseek-ai"
-   New-Item -ItemType Directory -Force C:\Users\Lenovo\.dsh\node_modules\@deepseek-ai | Out-Null
-   New-Item -ItemType Junction C:\Users\Lenovo\.dsh\node_modules\@deepseek-ai\dsh-tools -Target "$dsh\dsh-tools" | Out-Null
-   New-Item -ItemType Junction C:\Users\Lenovo\.dsh\node_modules\@deepseek-ai\schemastery -Target "$dsh\schemastery" | Out-Null
+   $dsh = "<用户目录>\.npm-global\node_modules\@deepseek-ai\dsh\node_modules\@deepseek-ai"
+   New-Item -ItemType Directory -Force <用户目录>\.dsh\node_modules\@deepseek-ai | Out-Null
+   New-Item -ItemType Junction <用户目录>\.dsh\node_modules\@deepseek-ai\dsh-tools -Target "$dsh\dsh-tools" | Out-Null
+   New-Item -ItemType Junction <用户目录>\.dsh\node_modules\@deepseek-ai\schemastery -Target "$dsh\schemastery" | Out-Null
    ```
 
-3. 在 web 配置层（`C:\Users\Lenovo\.dsh\profiles\web\cordis.patch.yml`）追加一行（或参考 `cordis.patch.sample.yml`）：
+3. 在 web 配置层（`<用户目录>\.dsh\profiles\web\cordis.patch.yml`，即 C:\Users\<你的用户名>\.dsh\...）追加一行（或参考 `cordis.patch.sample.yml`）：
 
    ```yaml
    - insert:
