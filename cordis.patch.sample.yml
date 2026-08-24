@@ -1,0 +1,25 @@
+# WPS 云文档插件（普通用户版）— 配置示例
+#
+# 本地安装：把下面这段（含缩进）追加到
+#   C:\Users\Lenovo\.dsh\profiles\web\cordis.patch.yml
+# 的末尾（作为数组的最后一个元素）。
+#
+# 本版本面向「普通 WPS 用户」：无需开发者账号 / APPID / APPKEY / OAuth 回调地址。
+# 首次使用时插件自动弹出浏览器 → 登录 WPS 网页版（365.kdocs.cn）→ 自动抓取会话
+# （wps_sid）并保存到本地；之后通过金山官方 kdocs-cli 访问你的云文档。
+#
+# 可选配置（均可省略）：
+#   sid          手动指定会话（一般不需要，首次会自动登录抓取）
+#   stateFile    会话保存文件（缺省 $DSH_HOME/wps-cloud-auth.json）
+#   cliPath      kdocs-cli 可执行文件路径（缺省自动查找/下载到 $DSH_HOME/wps-cloud/）
+#   autoOpenLogin         需要登录时是否自动弹窗（默认 true）
+#   openLoginOnUnauthorized 调用未登录工具时是否自动弹窗（默认 true）
+#   browserPath 受控浏览器路径（缺省自动探测 Edge/Chrome）
+#   loginTimeoutMs 登录等待超时（默认 300000 毫秒）
+
+- insert:
+    - id: wps-cloud
+      name: '@dsh-local/wps-cloud'
+      config:
+        autoOpenLogin: true
+        openLoginOnUnauthorized: true
