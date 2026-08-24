@@ -136,7 +136,8 @@
 | 弹窗打开的是 365.kdocs.cn，登录后跳到 account.wps.cn | 正常：那是 WPS 官方统一登录页，登录后自动回到云文档 |
 | 自动弹窗没有出现 | 确认 `autoOpenLogin: true`、已配置 `browserPath`（或本机装有 Edge/Chrome）；或直接运行 `wps_authorize` |
 | 提示“会话已失效/请重新登录” | 会话过期，重新运行 `wps_authorize` 登录一次 |
-| 提示“未找到 kdocs-cli” | 插件自动下载失败时，手动把 kdocs-cli.exe 放到 `$DSH_HOME/wps-cloud/`，或在配置 `cliPath` 指定路径 |
+| 提示“未找到 kdocs-cli” | 插件自动下载失败时，手动把 kdocs-cli.exe 放到 `<用户目录>\.dsh\wps-cloud\`，或在配置 `cliPath` 指定路径。已安装 WPS 灵犀桌面的机器，插件会自动使用灵犀自带的 kdocs-cli（`C:\Program Files\lingxi-desktop\resources\kdocs-cli\`） |
+| 设置页/面板始终显示“未登录”，但网页已登录 | 多为 dsh web 启动环境找不到 kdocs-cli 引擎（GUI 启动器无 `KDOCS_CLI_PATH` 环境变量）。解决：把 kdocs-cli.exe 复制到 `<用户目录>\.dsh\wps-cloud\`（v2.6.0 起自动兼容灵犀自带路径） |
 | 读取大文件报“文件大小错误” | 超大文档内容提取受限，改用 `wps_download_file` 下载后本地处理 |
 | `wps_delete_file` 不可用 | kdocs-cli 未暴露删除接口，请到 https://365.kdocs.cn 网页端删除 |
 | 工具没出现 | 确认插件已装入 `$DSH_HOME\node_modules\@dsh-local\wps-cloud`、patch 行已添加，并重启 dsh |
