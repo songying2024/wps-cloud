@@ -1,6 +1,6 @@
 {
   "name": "@dsh-local/wps-cloud",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "WPS 云文档 DSH 插件（普通用户版）：弹出浏览器登录 WPS 网页版 → 自动抓取会话（wps_sid）→ 通过金山官方 kdocs-cli 访问个人云文档。无需开发者账号，支持文件列表、搜索、读取、下载、上传、创建、重命名、移动；对话输入框 + 号左侧提供云文档附件图标（浏览/搜索云盘文件 + 上传本地文档），面板配色与 DSH 主题一致，云端文件/本地文档统一作为附件暂存到本机供 Agent 读取讨论。",
   "type": "module",
   "main": "lib/index.js",
